@@ -9,21 +9,33 @@ pipeline {
             }
         }
 
+        stage('Prepare') {
+            steps {
+                sh 'chmod +x EmployeeOrg/mvnw'
+            }
+        }
+
         stage('Build') {
             steps {
-                sh 'mvn clean compile'
+                dir('EmployeeOrg') {
+                    sh './mvnw clean compile'
+                }
             }
         }
 
         stage('Test') {
             steps {
-                sh 'mvn test'
+                dir('EmployeeOrg') {
+                    sh './mvnw test'
+                }
             }
         }
 
         stage('Package') {
             steps {
-                sh 'mvn package'
+                dir('EmployeeOrg') {
+                    sh './mvnw package'
+                }
             }
         }
     }
