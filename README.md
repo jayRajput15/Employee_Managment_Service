@@ -1,43 +1,68 @@
-A Spring Boot-based RESTful API designed to manage an organization's employees and departments. This project demonstrates clean architecture patterns, validation mechanisms, unified error handling, and entity-DTO mapping.
+# Employee Organization Management System
 
-src/main/java/com/example/EmployeeOrg/
-│
-├── EmployeeOrgApplication.java      # Application main entry point
-│
-├── entities/                        # Database entities (JPA mappings)
-│   ├── EmployeeEntity.java
-│   └── DepartmentEntity.java
-│
-├── dto/                             # Data Transfer Objects for API requests/responses
-│   ├── EmployeeDTO.java
-│   └── DepartmentDTO.java
-│
-├── repositories/                    # Spring Data JPA repositories
-│   ├── EmployeeRepository.java
-│   └── DepartmentRepository.java
-│
-├── service/                         # Business logic layer
-│   ├── EmployeeService.java
-│   └── DepartmentService.java
-│
-├── controller/                      # REST controllers (API endpoints)
-│   ├── EmployeeController.java
-│   └── DepartmentController.java
-│
-├── configs/                         # Configuration beans
-│   └── MapperConfig.java
-│
-├── advice/                          # Global exception handling and response wrapping
-│   ├── ApiResponse.java             # Unified response wrapper
-│   ├── ApiErrors.java               # Standardized error payload
-│   ├── GlobalExceptionHandler.java  # RestControllerAdvice
-│   └── GlobalResponseHandler.java   # ResponseBodyAdvice (wrapper middleware)
-│
-├── annotations/                     # Custom validation annotations
-│   ├── EmployeeRoleValidation.java
-│   └── EmployeeRoleValidator.java
-│
-└── exceptions/                      # Custom business exceptions
-    └── ResourceNotFoundException.java
-During the analysis of the project, a couple of potential bugs/gaps were identified:
+A Spring Boot RESTful API for managing employees and departments within an organization. The project follows a clean layered architecture and demonstrates industry-standard backend development practices including DTO mapping, validation, centralized exception handling, and CI/CD integration using Jenkins.
 
+## Features
+
+- Employee CRUD operations
+- Department CRUD operations
+- Layered Architecture (Controller → Service → Repository)
+- DTO Pattern for request and response handling
+- Entity-DTO mapping using ModelMapper
+- Custom Validation using Bean Validation
+- Global Exception Handling with `@RestControllerAdvice`
+- Standardized API response wrapper
+- Spring Data JPA & Hibernate
+- MySQL Database Integration
+- RESTful API Design
+- Jenkins CI/CD Pipeline with GitHub Webhooks
+- Maven Build Automation
+
+## Project Structure
+
+```text
+src
+├── controller
+├── service
+├── repository
+├── entities
+├── dto
+├── configs
+├── advice
+├── annotations
+└── exceptions
+```
+
+## Tech Stack
+
+- Java
+- Spring Boot
+- Spring Data JPA
+- Hibernate
+- MySQL
+- Maven
+- ModelMapper
+- Jakarta Validation
+- Lombok
+- Jenkins
+- Git & GitHub
+
+## Jenkins Integration
+
+The project includes a Jenkins Pipeline that automates the build process.
+
+- Automatically triggers on GitHub push
+- Checks out the latest code
+- Builds the project using Maven
+- Runs automated tests
+- Reports build status
+
+## Future Improvements
+
+- JWT Authentication & Authorization
+- Swagger/OpenAPI Documentation
+- Docker Support
+- Unit & Integration Testing
+- Pagination & Sorting
+- Caching with Redis
+- SonarQube Integration
